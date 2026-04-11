@@ -16,7 +16,7 @@ public:
 	}
 
 	void draw(){
-		DrawRectangle(x, y, x + width, y + height, color);
+		DrawRectangle(x, y, width, height, color);
 	}
 
 	void update(){
