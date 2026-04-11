@@ -13,6 +13,7 @@ public:
 		radius = _radius;
 		speedX = 7.0f;
 		speedY = 7.0f;
+		color = BLACK;
 	}
 
 	void draw(){

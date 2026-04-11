@@ -8,15 +8,14 @@ int main (void) {
     InitWindow(windowWidth, windowHeight, "Pong");
     SetTargetFPS(60);
 
+    Ball ball(windowWidth / 2, windowHeight / 2, 20);
+
     while(!WindowShouldClose()){
         BeginDrawing();
 
         ClearBackground(WHITE);
 
-	DrawCircle(windowWidth / 2, windowHeight / 2, windowHeight / 2, BLACK);
-	DrawRectangle(windowWidth / 2, windowHeight / 2, windowWidth, windowHeight, RED);
-	DrawLine(0, windowHeight, windowWidth, 0, GREEN);
-	DrawLine(0, 0, windowWidth, windowHeight, BLUE);
+	ball.draw();
 
         EndDrawing();
     }
