@@ -24,12 +24,12 @@
 .PHONY: all clean
 
 # Define required raylib variables
-PROJECT_NAME       ?= game
+PROJECT_NAME       ?= pong
 RAYLIB_VERSION     ?= 4.5.0
-RAYLIB_PATH        ?= ..\..
+RAYLIB_PATH        ?= . # was ../..
 
 # Define compiler path on Windows
-COMPILER_PATH      ?= C:/raylib/w64devkit/bin
+COMPILER_PATH      ?= # C:/raylib/w64devkit/bin
 
 # Define default options
 # One of PLATFORM_DESKTOP, PLATFORM_RPI, PLATFORM_ANDROID, PLATFORM_WEB
@@ -128,7 +128,7 @@ endif
 
 # Define raylib release directory for compiled library.
 # RAYLIB_RELEASE_PATH points to provided binaries or your freshly built version
-RAYLIB_RELEASE_PATH 	?= $(RAYLIB_PATH)/src
+RAYLIB_RELEASE_PATH 	?= ./lib # was $(RAYLIB_PATH)/src
 
 # EXAMPLE_RUNTIME_PATH embeds a custom runtime location of libraylib.so or other desired libraries
 # into each example binary compiled with RAYLIB_LIBTYPE=SHARED. It defaults to RAYLIB_RELEASE_PATH
@@ -250,7 +250,7 @@ endif
 
 # Define include paths for required headers
 # NOTE: Several external required libraries (stb and others)
-INCLUDE_PATHS = -I. -I$(RAYLIB_PATH)/src -I$(RAYLIB_PATH)/src/external
+INCLUDE_PATHS = -I. -I./include
 ifneq ($(wildcard /opt/homebrew/include/.*),)
     INCLUDE_PATHS += -I/opt/homebrew/include
 endif
@@ -275,7 +275,7 @@ ifeq ($(PLATFORM),PLATFORM_DESKTOP)
 endif
 
 # Define library paths containing required libs.
-LDFLAGS = -L.
+LDFLAGS = -L. -L./lib
 
 ifneq ($(wildcard $(RAYLIB_RELEASE_PATH)/.*),)
     LDFLAGS += -L$(RAYLIB_RELEASE_PATH)
