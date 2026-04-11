@@ -17,6 +17,7 @@ int main (void) {
 
         ClearBackground(WHITE);
 
+	DrawLine(windowWidth / 2, 0, windowWidth / 2, windowHeight, BLUE);
 	ball.draw();
 
         EndDrawing();
