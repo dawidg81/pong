@@ -11,7 +11,9 @@ int main (void) {
     Ball ball(windowWidth / 2, windowHeight / 2, 20);
 
     while(!WindowShouldClose()){
-        BeginDrawing();
+	ball.update();
+        
+	BeginDrawing();
 
         ClearBackground(WHITE);
 

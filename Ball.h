@@ -19,4 +19,9 @@ public:
 	void draw(){
 		DrawCircle(x, y, radius, color);
 	}
+
+	void update(){
+		x += speedX;
+		y += speedY;
+	}
 };
