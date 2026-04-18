@@ -3,33 +3,38 @@
 
 class Ball {
 public:
-	float x, y, speedX, speedY;
-	int radius;
-	Color color;
+  float x, y, speedX, speedY;
+  int radius;
+  Color color;
 
-	Ball(float _x, float _y, int _radius){
-		x = _x;
-		y = _y;
-		radius = _radius;
-		speedX = 7.0f;
-		speedY = 7.0f;
-		color = BLACK;
-	}
+  Ball(float _x, float _y, int _radius){
+    x = _x;
+    y = _y;
+    radius = _radius;
+    speedX = 7.0f;
+    speedY = 7.0f;
+    color = BLACK;
+  }
 
-	void draw(){
-		DrawCircle(x, y, radius, color);
-	}
+  void draw(){
+    DrawCircle(x, y, radius, color);
+  }
 
-	void update(){
-		x += speedX;
-		y += speedY;
+  void update(){
+    x += speedX;
+    y += speedY;
 
-		if(y + radius >= GetScreenHeight() || y - radius <= 0){
-			speedY *= -1;
-		}
+    if(y + radius >= GetScreenHeight() || y - radius <= 0){
+      speedY *= -1;
+    }
 
-		if(x + radius >= GetScreenWidth() || x - radius <= 0){
-			speedX *= -1;
-		}
-	}
+    if(x + radius >= GetScreenWidth() || x - radius <= 0){
+      speedX *= -1;
+    }
+  }
+
+  void reset() {
+    y = GetScreenHeight() / 2;
+    x = GetScreenWidth() / 2;
+  }
 };
