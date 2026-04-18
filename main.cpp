@@ -19,6 +19,18 @@ int main (void) {
     paddle.update();
     cpuPaddle.update(ball.y);
 
+    if (CheckCollisionCircleRec(
+            Vector2{ball.x, ball.y}, ball.radius,
+            Rectangle{paddle.x, paddle.y, paddle.width, paddle.height})) {
+      ball.speedX *= -1;
+    }
+
+    if (CheckCollisionCircleRec(
+            Vector2{ball.x, ball.y}, ball.radius,
+            Rectangle{cpuPaddle.x, cpuPaddle.y, cpuPaddle.width, cpuPaddle.height})) {
+      ball.speedX *= -1;
+    }
+
     BeginDrawing();
 
     ClearBackground(WHITE);
