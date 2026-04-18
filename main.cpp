@@ -5,12 +5,13 @@
 int main (void) {
   const int windowHeight = 720;
   const int windowWidth = 1280;
+  const float paddlesSpeed = 7.0f;
 
   InitWindow(windowWidth, windowHeight, "Pong");
   SetTargetFPS(60);
 
-  Paddle paddle(10, windowHeight / 2 - 60, 7.0f);
-  CPUPaddle cpuPaddle(windowWidth - 35, windowHeight / 2 - 60, 7.0f);
+  Paddle paddle(10, windowHeight / 2 - 60, paddlesSpeed);
+  CPUPaddle cpuPaddle(windowWidth - 35, windowHeight / 2 - 60, paddlesSpeed);
   Ball ball(windowWidth / 2, windowHeight / 2, 20);
 
   while(!WindowShouldClose()){
