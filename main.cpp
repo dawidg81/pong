@@ -23,16 +23,26 @@ int main (void) {
     paddle.update();
     cpuPaddle.update(ball.y);
 
-    if (CheckCollisionCircleRec(
+    if (ball.speedX < 0 && CheckCollisionCircleRec(
             Vector2{ball.x, ball.y}, ball.radius,
             Rectangle{paddle.x, paddle.y, paddle.width, paddle.height})) {
-      ball.speedX *= -1;
+      
+      if (ball.x < paddle.width) {
+	    ball.speedY *= -1;
+      } else {
+	      ball.speedX *= -1;
+      }
     }
 
-    if (CheckCollisionCircleRec(
+    if (ball.speedX > 0 && CheckCollisionCircleRec(
             Vector2{ball.x, ball.y}, ball.radius,
             Rectangle{cpuPaddle.x, cpuPaddle.y, cpuPaddle.width, cpuPaddle.height})) {
-      ball.speedX *= -1;
+
+      if (ball.x > windowWidth - cpuPaddle.width) {
+	    ball.speedY *= -1;
+      } else {
+	      ball.speedX *= -1;
+      }
     }
 
     if (ball.x + ball.radius > windowWidth) {

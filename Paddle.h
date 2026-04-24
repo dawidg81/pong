@@ -10,7 +10,7 @@ public:
     x = _x;
     y = _y;
     speed = _speed;
-    width = 25;
+    width = 25; // 25
     height = 120;
     color = BLACK;
   }
